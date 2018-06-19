@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="定义与触发在JavaScript前端开发中，我们经常调用click、mouseup等基本事件。有的时候，为了满足特定功能的要求，我们需要自定义事件，这就要说到自定义事件的运作机制。对于标准浏览器，其提供了可供元素触发的方法：element.dispatchEvent(). 使用该方法之前需要进行创建和初始化。因此，总结说来就是： document.createEvent() event.initE">
+<meta name="description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js自定义事件">
-<meta property="og:url" content="http://yoursite.com/2018/06/10/js自定义事件/index.html">
+<meta property="og:title" content="面向对象(一)">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/面向对象(一)/index.html">
 <meta property="og:site_name" content="Hello">
-<meta property="og:description" content="定义与触发在JavaScript前端开发中，我们经常调用click、mouseup等基本事件。有的时候，为了满足特定功能的要求，我们需要自定义事件，这就要说到自定义事件的运作机制。对于标准浏览器，其提供了可供元素触发的方法：element.dispatchEvent(). 使用该方法之前需要进行创建和初始化。因此，总结说来就是： document.createEvent() event.initE">
+<meta property="og:description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-09T14:42:37.937Z">
+<meta property="og:updated_time" content="2018-06-09T14:42:27.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js自定义事件">
-<meta name="twitter:description" content="定义与触发在JavaScript前端开发中，我们经常调用click、mouseup等基本事件。有的时候，为了满足特定功能的要求，我们需要自定义事件，这就要说到自定义事件的运作机制。对于标准浏览器，其提供了可供元素触发的方法：element.dispatchEvent(). 使用该方法之前需要进行创建和初始化。因此，总结说来就是： document.createEvent() event.initE">
+<meta name="twitter:title" content="面向对象(一)">
+<meta name="twitter:description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/10/js自定义事件/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/19/面向对象(一)/"/>
 
 
 
 
 
-  <title>js自定义事件 | Hello</title>
+  <title>面向对象(一) | Hello</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/js自定义事件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/面向对象(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LuanXiaoFeng">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js自定义事件</h1>
+          <h1 class="post-title" itemprop="name headline">面向对象(一)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-10T17:47:15+08:00">
-                2018-06-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T18:36:08+08:00">
+                2018-06-19
               </time>
             
 
@@ -315,41 +315,60 @@
       
 
       
-        <h2 id="定义与触发"><a href="#定义与触发" class="headerlink" title="定义与触发"></a>定义与触发</h2><p>在JavaScript前端开发中，我们经常调用click、mouseup等基本事件。有的时候，为了满足特定功能的要求，我们需要自定义事件，这就要说到自定义事件的运作机制。<br>对于标准浏览器，其提供了可供元素触发的方法：element.dispatchEvent(). 使用该方法之前需要进行创建和初始化。因此，总结说来就是：</p>
-<pre><code>document.createEvent()
-event.initEvent()
-element.dispatchEvent()
-</code></pre><p>具体详解<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 创建</span><br><span class="line">var evt = document.createEvent(&quot;HTMLEvents&quot;);</span><br><span class="line">// 初始化，事件类型，是否冒泡，是否阻止浏览器的默认行为</span><br><span class="line">evt.initEvent(&quot;alert&quot;, false, false);</span><br><span class="line"></span><br><span class="line">// 触发</span><br><span class="line">dom.dispatchEvent(evt);</span><br></pre></td></tr></table></figure></p>
-<p>createEvent()方法返回新创建的Event对象，支持一个参数，表示事件类型，具体见下表：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th style="text-align:center">事件接口</th>
-<th style="text-align:right">初始化方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HTMLEvents</td>
-<td style="text-align:center">HTMLEvent</td>
-<td style="text-align:right">initEvent()</td>
-</tr>
-<tr>
-<td>MouseEvents</td>
-<td style="text-align:center">MouseEvent</td>
-<td style="text-align:right">initMouseEvent()</td>
-</tr>
-<tr>
-<td>UIEvents</td>
-<td style="text-align:center">UIEvent</td>
-<td style="text-align:right">initUIEvent()</td>
-</tr>
-</tbody>
-</table>
-<p><code>initEvent()</code>方法用于初始化通过<code>DocumentEvent</code>接口创建的<code>Event</code>的值。支持三个参数：<code>initEvent(eventName, canBubble, preventDefault).</code> 分别表示事件名称，是否可以冒泡，是否阻止事件的默认操作。</p>
-<p><code>dispatchEvent()</code>就是触发执行了，<code>dom.dispatchEvent(eventObject),</code> 参数<code>eventObject</code>表示事件对象，是<code>createEvent()</code>方法返回的创建的<code>Event</code>对象。</p>
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。</p>
+<p> 把封装函数的思想叫成抽象<br>     封装函数：====&gt;相同的代码拿一个函数包起来，复用<br>     把函数变成对象的一种编程思想</p>
+</blockquote>
+<blockquote>
+<p>类：-&gt;把相同的特征的代码归为一类   (封装函数)<br>       <em>类的首字母要大写</em><br>       <em>类中尽量把变量变成属性。</em><br>抽象:（抽离，长得像）<br>           -&gt; 抽出像的部分</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Person(Pname,Page)&#123;  //类</span><br><span class="line">        let name = Pname;</span><br><span class="line">        let age = Page;</span><br><span class="line">        return &#123;</span><br><span class="line">            name,</span><br><span class="line">            age</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let p1 = Person(&apos;小明&apos;,20);</span><br><span class="line">    let p2 = Person(&apos;诗诗&apos;,18);</span><br><span class="line">    let p3 = Person(&apos;张三&apos;,16);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    console.log(p1); //实例化对象</span><br></pre></td></tr></table></figure>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>函数运算符<br>对象只有  proto<br>函数有   prototype    proto</p>
+<ul>
+<li>加不加括号都会运行函数,只不过加括号是为了传参</li>
+<li>构造函数中的this指向它的实例化对象</li>
+<li>默认返回构造函数的实例化对象</li>
+<li>如果强行给它加上return，如果是简单类型的数据<pre><code>返回值还是构造函数的实例化对象
+如果是复合类型，就返回介个复合类型。
+</code></pre></li>
+</ul>
+<h2 id="prototype-原型"><a href="#prototype-原型" class="headerlink" title="prototype(原型)"></a>prototype(原型)</h2><p>当创建一个函数的时候，自身带的属性<br><strong><em> 这个属性的值为对象 </em></strong></p>
+<blockquote>
+<p>如果一个对象上没有某个属性或者方法，那么还会继续<br>        去这个对象的构造函数的原型下去找某个属性或者方法。</p>
+</blockquote>
+<h2 id="proto（原型链）"><a href="#proto（原型链）" class="headerlink" title="proto（原型链）"></a><strong>proto</strong>（原型链）</h2><blockquote>
+<p>对象身上才有原型链(包括函数)<br>实例化对象的原型链 === 构造函数的原型</p>
+</blockquote>
+<blockquote>
+<p> <strong><em> 构造函数的原型下的属性或者方法，只给它的实例化对象用</em></strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Person.prototype.say = function()&#123;</span><br><span class="line">        alert(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    let p = new Person(&apos;小王&apos;,12);</span><br><span class="line"></span><br><span class="line">     console.dir(p.__proto__ === Person.prototype);//true</span><br><span class="line"></span><br><span class="line">    console.dir(p);</span><br></pre></td></tr></table></figure>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><ul>
+<li>Function是Function构造出来的</li>
+<li>Object也是Function构造出来的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">     Person.prototype.say = function()&#123;</span><br><span class="line">     alert(1);</span><br><span class="line">     &#125;</span><br><span class="line">     Function.prototype.say = function()&#123;</span><br><span class="line">         alert(3);</span><br><span class="line">     &#125;</span><br><span class="line">    Object.prototype.say = function()&#123;</span><br><span class="line">        alert(4);</span><br><span class="line">    &#125;</span><br><span class="line">     Function.say = function()&#123;</span><br><span class="line">         alert(5);</span><br><span class="line">     &#125;</span><br><span class="line">     Person.say = function()&#123;</span><br><span class="line">         alert(2);</span><br><span class="line">     &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    let p = new Person();</span><br><span class="line">     p.say();</span><br><span class="line">     Person.say();</span><br><span class="line">     Function.say();</span><br><span class="line">    Object.say();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><pre><code> p.say
+   1、p.say
+   2、Person.prototype.say
+   3、Object.prototype.say
 
+ Person.say
+   1、Person.say
+   2、Person.__proto__ -&gt; Function.prototype
+   3、Object.prototype.say
+
+Function.say
+   1、Function.say
+   2、Function.__proto__ -&gt; Function.prototype
+   3、Object.prototype.say
+
+
+Object.say
+    1、Object.say
+    2、Object.__proto__ -&gt; Function.prototype
+    3、Object.prototype.say
+</code></pre>
       
     </div>
     
@@ -402,8 +421,8 @@ element.dispatchEvent()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/09/js eval()函数/" rel="next" title="js eval()函数">
-                <i class="fa fa-chevron-left"></i> js eval()函数
+              <a href="/2018/06/18/跨域（跨源）/" rel="next" title="跨域（跨源）(一)">
+                <i class="fa fa-chevron-left"></i> 跨域（跨源）(一)
               </a>
             
           </div>
@@ -411,10 +430,6 @@ element.dispatchEvent()
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/12/Promise/" rel="prev" title="Promise">
-                Promise <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -548,7 +563,7 @@ element.dispatchEvent()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义与触发"><span class="nav-number">1.</span> <span class="nav-text">定义与触发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-number">2.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prototype-原型"><span class="nav-number">3.</span> <span class="nav-text">prototype(原型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proto（原型链）"><span class="nav-number">4.</span> <span class="nav-text">proto（原型链）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">5.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
