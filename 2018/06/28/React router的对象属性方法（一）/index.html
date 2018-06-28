@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="一、全局安装webpack直接使用npm全局安装webpack，我们预期全局安装webpack后，便能在命令行中使用webpack指令。我们在命令行输入： npm install -g webpack  当执行该操作后，便在C:\Users\你的用户名\AppData\Roaming\npm\node_modules创建了webpack文件夹，里面存储了刚刚全局安装的webpack模块。 二. 创">
+<meta name="description" content="match对象 match是一个匹配路径参数的对象，它有一个属性params，里面的内容就是路径参数代码示例如下：123456789101112131415161718192021222324252627282930313233import &amp;#123; render &amp;#125; from &amp;quot;react-dom&amp;quot;;import &amp;#123; BrowserRouter as">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack4.x开发环境配置">
-<meta property="og:url" content="http://yoursite.com/2018/06/14/webpack4.x开发环境配置/index.html">
+<meta property="og:title" content="React router的对象属性方法（一）">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/React router的对象属性方法（一）/index.html">
 <meta property="og:site_name" content="Hello">
-<meta property="og:description" content="一、全局安装webpack直接使用npm全局安装webpack，我们预期全局安装webpack后，便能在命令行中使用webpack指令。我们在命令行输入： npm install -g webpack  当执行该操作后，便在C:\Users\你的用户名\AppData\Roaming\npm\node_modules创建了webpack文件夹，里面存储了刚刚全局安装的webpack模块。 二. 创">
+<meta property="og:description" content="match对象 match是一个匹配路径参数的对象，它有一个属性params，里面的内容就是路径参数代码示例如下：123456789101112131415161718192021222324252627282930313233import &amp;#123; render &amp;#125; from &amp;quot;react-dom&amp;quot;;import &amp;#123; BrowserRouter as">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-09T14:42:33.361Z">
+<meta property="og:updated_time" content="2018-06-17T11:01:14.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack4.x开发环境配置">
-<meta name="twitter:description" content="一、全局安装webpack直接使用npm全局安装webpack，我们预期全局安装webpack后，便能在命令行中使用webpack指令。我们在命令行输入： npm install -g webpack  当执行该操作后，便在C:\Users\你的用户名\AppData\Roaming\npm\node_modules创建了webpack文件夹，里面存储了刚刚全局安装的webpack模块。 二. 创">
+<meta name="twitter:title" content="React router的对象属性方法（一）">
+<meta name="twitter:description" content="match对象 match是一个匹配路径参数的对象，它有一个属性params，里面的内容就是路径参数代码示例如下：123456789101112131415161718192021222324252627282930313233import &amp;#123; render &amp;#125; from &amp;quot;react-dom&amp;quot;;import &amp;#123; BrowserRouter as">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/14/webpack4.x开发环境配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/28/React router的对象属性方法（一）/"/>
 
 
 
 
 
-  <title>webpack4.x开发环境配置 | Hello</title>
+  <title>React router的对象属性方法（一） | Hello</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/webpack4.x开发环境配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/28/React router的对象属性方法（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LuanXiaoFeng">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack4.x开发环境配置</h1>
+          <h1 class="post-title" itemprop="name headline">React router的对象属性方法（一）</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-14T19:32:57+08:00">
-                2018-06-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-28T20:16:39+08:00">
+                2018-06-28
               </time>
             
 
@@ -315,17 +315,39 @@
       
 
       
-        <h2 id="一、全局安装webpack"><a href="#一、全局安装webpack" class="headerlink" title="一、全局安装webpack"></a>一、全局安装webpack</h2><p>直接使用npm全局安装webpack，我们预期全局安装webpack后，便能在命令行中使用webpack指令。我们在命令行输入：</p>
-<pre><code>npm install -g webpack
-</code></pre><p> 当执行该操作后，便在C:\Users\你的用户名\AppData\Roaming\npm\node_modules创建了webpack文件夹，里面存储了刚刚全局安装的webpack模块。</p>
-<h2 id="二-创建项目"><a href="#二-创建项目" class="headerlink" title="二. 创建项目"></a>二. 创建项目</h2><p>我们在合适位置新建一个文件夹，用于存放我们的项目。<br>命令行中定位到新建文件夹下，输入以下命令进行项目的初始化：</p>
-<pre><code>npm init
-</code></pre><p>这里，要求设置很多选项，可以按项目情况配置也可以不填直接回车。完成后，我们发现文件夹中增加了package.json文件，它用于保存关于项目的信息。</p>
-<h2 id="三-安装webpack-cli"><a href="#三-安装webpack-cli" class="headerlink" title="三.安装webpack-cli"></a>三.安装webpack-cli</h2><p>我们在项目中本地安装webpack-cli：</p>
-<pre><code>npm install webpack-cli -D
-</code></pre><p>这里-D参数和–save-dev的作用相同，只是一种简写而已。这里安装完成后，显示webpack-cli版本</p>
-<h2 id="四-在项目目录下要本地安装webpack"><a href="#四-在项目目录下要本地安装webpack" class="headerlink" title="四.在项目目录下要本地安装webpack"></a>四.在项目目录下要本地安装webpack</h2><pre><code>npm install webpack -D 
-</code></pre><h2 id="五-手动新建文件夹作为配置文件"><a href="#五-手动新建文件夹作为配置文件" class="headerlink" title="五.手动新建文件夹作为配置文件"></a>五.手动新建文件夹作为配置文件</h2><pre><code>名字为：webpack.config.js
+        <h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><blockquote>
+<p>match是一个匹配路径参数的对象，它有一个属性params，里面的内容就是路径参数<br>代码示例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import &#123; render &#125; from &quot;react-dom&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; BrowserRouter as Router, Route, Link, Prompt,Redirect &#125; from &quot;react-router-dom&quot;;</span><br><span class="line"></span><br><span class="line">class Match extends Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;id:&#123;this.props.match.params.id&#125;&lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Main extends Component&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        super(props);</span><br><span class="line">    &#125;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;Router&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;ul&gt;</span><br><span class="line">                        &lt;li&gt;&lt;Link to=&quot;/home&quot;&gt;首页&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;&lt;Link to=&quot;/other&quot;&gt;其他页&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;Route path=&quot;/:id&quot; component=&#123;Match&#125;/&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/Router&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//id就是路径匹配参数。</span><br><span class="line">render(&lt;Main /&gt;,document.getElementById(&quot;root&quot;));</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>Match的获取方式：<br>在Route component中，组件通过this.props.match获取。<br>在Route render 和Route children中，通过传递一个参数的方式获取。</p>
+</blockquote>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><blockquote>
+<p>是history这个为React Router提供核心功能的包。它能轻松地在客户端为项目添加基于location的导航，这种对于单页应用至关重要的功能。<br>React Router 是建立在 history 之上的。 简而言之，一个 history 知道如何去监听浏览器地址栏的变化， 并解析这个 URL 转化为 location 对象， 然后 router 使用它匹配到路由，最后正确地渲染对应的组件。</p>
+</blockquote>
+<p>常用的 history 有三种形式</p>
+<ol>
+<li><p>browserHistory</p>
+</li>
+<li><p>hashHistory</p>
+</li>
+<li><p>createMemoryHistory</p>
+</li>
+</ol>
+<h2 id="browserHistory"><a href="#browserHistory" class="headerlink" title="browserHistory"></a>browserHistory</h2><p>Browser history 是使用 React Router 的应用推荐的 history。它使用浏览器中的 History API 用于处理 URL，创建一个像example.com/some/path这样真实的 URL </p>
+<h2 id="hashHistory"><a href="#hashHistory" class="headerlink" title="hashHistory"></a>hashHistory</h2><blockquote>
+<p>Hash history 使用 URL 中的 hash（#）部分去创建形如 example.com/#/some/path 的路由。</p>
+</blockquote>
+<h2 id="history-下方法"><a href="#history-下方法" class="headerlink" title="history 下方法"></a>history 下方法</h2><p>push方法</p>
+<p><code>push</code>方法使能你跳转到新的<code>location</code>。通过在当前<code>location</code>后添加新的<code>location</code>时，任意的’未来’<code>location</code>会被清除（之前由后退按钮而形成的在当前<code>location</code>后的<code>location</code>）。</p>
+<p>默认情况下，当你点击<link>时，会调用history.push方法进行导航。</p>
+<pre><code>history.push({ pathname: &apos;/new-place&apos; })
+</code></pre><p>go, go, go方法<br>最后有三个带‘go’的方法，它们分别是goBack,goForward与go。</p>
+<p>goBack返回一层页面。实际上是将history的索引值减1。</p>
+<pre><code>history.goBack()
+</code></pre><p>goForward与goBack相对。向前一层页面。这仅在拥有’未来’location生效，即当用户点击了后退按钮。</p>
+<pre><code>history.goForward()
+</code></pre><p>go是一个强大的方法，并包含了goForward与goBack的功能。传入负数则退后，传入正数则向前。</p>
+<pre><code>history.go(-3)
 </code></pre>
       
     </div>
@@ -379,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/React入门介绍-JSX/" rel="next" title="React入门介绍-JSX">
-                <i class="fa fa-chevron-left"></i> React入门介绍-JSX
+              <a href="/2018/06/27/React 各API安装命令/" rel="next" title="React 各API安装命令">
+                <i class="fa fa-chevron-left"></i> React 各API安装命令
               </a>
             
           </div>
@@ -388,10 +410,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/15/封装数组的方法/" rel="prev" title="数组封装方法">
-                数组封装方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、全局安装webpack"><span class="nav-number">1.</span> <span class="nav-text">一、全局安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-创建项目"><span class="nav-number">2.</span> <span class="nav-text">二. 创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-安装webpack-cli"><span class="nav-number">3.</span> <span class="nav-text">三.安装webpack-cli</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-在项目目录下要本地安装webpack"><span class="nav-number">4.</span> <span class="nav-text">四.在项目目录下要本地安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-手动新建文件夹作为配置文件"><span class="nav-number">5.</span> <span class="nav-text">五.手动新建文件夹作为配置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#match对象"><span class="nav-number">1.</span> <span class="nav-text">match对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history"><span class="nav-number">2.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#browserHistory"><span class="nav-number">3.</span> <span class="nav-text">browserHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashHistory"><span class="nav-number">4.</span> <span class="nav-text">hashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-下方法"><span class="nav-number">5.</span> <span class="nav-text">history 下方法</span></a></li></ol></div>
             
 
           </div>
