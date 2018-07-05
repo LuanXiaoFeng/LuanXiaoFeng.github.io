@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="1.react的安装 确保您安装了最新版本的 Node.js 。 npm install -g create-react-app//全局安装react    create-react-app my-app//创建一个新项目 my-app cd my-app npm start//浏览器自动打开 http://localhost:3000  此时入口文件index 和其他组件里可以引用  impor">
+<meta name="description" content="生命周期三个状态： Mounting：已插入真实 DOM   =&amp;gt;   初始化 Updating：正在被重新渲染   =&amp;gt;   更新  Unmounting：已移出真实 DOM =&amp;gt;   销毁 生命周期的方法    1.组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。  componentWillMount()  2.组件渲染之后调用，只调">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React 各API安装命令">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/React 各API安装命令/index.html">
+<meta property="og:title" content="React之生命周期">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/React之生命周期/index.html">
 <meta property="og:site_name" content="Hello">
-<meta property="og:description" content="1.react的安装 确保您安装了最新版本的 Node.js 。 npm install -g create-react-app//全局安装react    create-react-app my-app//创建一个新项目 my-app cd my-app npm start//浏览器自动打开 http://localhost:3000  此时入口文件index 和其他组件里可以引用  impor">
+<meta property="og:description" content="生命周期三个状态： Mounting：已插入真实 DOM   =&amp;gt;   初始化 Updating：正在被重新渲染   =&amp;gt;   更新  Unmounting：已移出真实 DOM =&amp;gt;   销毁 生命周期的方法    1.组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。  componentWillMount()  2.组件渲染之后调用，只调">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-15T15:34:02.755Z">
+<meta property="og:updated_time" content="2018-06-13T03:03:00.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React 各API安装命令">
-<meta name="twitter:description" content="1.react的安装 确保您安装了最新版本的 Node.js 。 npm install -g create-react-app//全局安装react    create-react-app my-app//创建一个新项目 my-app cd my-app npm start//浏览器自动打开 http://localhost:3000  此时入口文件index 和其他组件里可以引用  impor">
+<meta name="twitter:title" content="React之生命周期">
+<meta name="twitter:description" content="生命周期三个状态： Mounting：已插入真实 DOM   =&amp;gt;   初始化 Updating：正在被重新渲染   =&amp;gt;   更新  Unmounting：已移出真实 DOM =&amp;gt;   销毁 生命周期的方法    1.组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。  componentWillMount()  2.组件渲染之后调用，只调">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/27/React 各API安装命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/05/React之生命周期/"/>
 
 
 
 
 
-  <title>React 各API安装命令 | Hello</title>
+  <title>React之生命周期 | Hello</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/React 各API安装命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/React之生命周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LuanXiaoFeng">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">React 各API安装命令</h1>
+          <h1 class="post-title" itemprop="name headline">React之生命周期</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T18:09:58+08:00">
-                2018-06-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-05T20:11:10+08:00">
+                2018-07-05
               </time>
             
 
@@ -315,60 +315,36 @@
       
 
       
-        <h2 id="1-react的安装"><a href="#1-react的安装" class="headerlink" title="1.react的安装"></a>1.react的安装</h2><ul>
-<li>确保您安装了最新版本的 Node.js 。</li>
-<li><code>npm install -g create-react-app</code>//全局安装react   </li>
-<li><code>create-react-app my-app</code>//创建一个新项目 my-app</li>
-<li><code>cd my-app</code></li>
-<li><code>npm start</code>//浏览器自动打开 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></li>
-</ul>
-<p>此时入口文件index 和其他组件里可以引用</p>
+        <h2 id="生命周期三个状态："><a href="#生命周期三个状态：" class="headerlink" title="生命周期三个状态："></a>生命周期三个状态：</h2><ol>
+<li>Mounting：已插入真实 DOM   =&gt;   初始化</li>
+<li>Updating：正在被重新渲染   =&gt;   更新 </li>
+<li><p>Unmounting：已移出真实 DOM =&gt;   销毁</p>
+<h2 id="生命周期的方法"><a href="#生命周期的方法" class="headerlink" title="生命周期的方法"></a>生命周期的方法</h2></li>
+</ol>
 <blockquote>
-<p>import React from ‘react’</p>
+<p> 1.组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。</p>
 </blockquote>
-<h2 id="2-react-dom的安装"><a href="#2-react-dom的安装" class="headerlink" title="2.react-dom的安装"></a>2.react-dom的安装</h2><pre><code>npm install react react-dom
-</code></pre><p>安装完成入口文件index 和其他组件里可以引用</p>
-<blockquote>
-<p>import ReactDOM from ‘react-dom’<br>ReactDom.render(  组件 ,el,()=&gt;{})</p>
+<pre><code>componentWillMount()
+</code></pre><blockquote>
+<p>2.组件渲染之后调用，只调用一次</p>
 </blockquote>
-<h2 id="3-react-router的安装"><a href="#3-react-router的安装" class="headerlink" title="3.react router的安装"></a>3.react router的安装</h2><pre><code>npm i react-router-dom -S
-</code></pre><p>安装完成入口文件index 和其他组件里可以引用</p>
-<blockquote>
-<p> import { BrowserRouter as Router} from ‘react-router-dom’<br>import {Route,Link,Redirect,switch,NavLink} from ‘react-router-dom’;</p>
+<pre><code>componentDidMount()
+</code></pre><blockquote>
+<p>3.数据发生变化的时候就会进去</p>
 </blockquote>
-<h2 id="4-redux的安装"><a href="#4-redux的安装" class="headerlink" title="4.redux的安装"></a>4.redux的安装</h2><pre><code>npm i redux -D 
-</code></pre><p>安装完成入口文件index 和其他组件里可以引用</p>
-<blockquote>
-<p>import { createStore} from “redux”<br>import {combineReducers} from ‘redux’;//合并reducer</p>
+<pre><code>componentWillReceiveProps ()
+</code></pre><blockquote>
+<p>4.在组件接收到新的props或者state时被调用 做性能优化的<br>    返回一个布尔值<br>    在你确认不需要更新组件时使用。</p>
 </blockquote>
-<h2 id="5-redux-thunk的安装"><a href="#5-redux-thunk的安装" class="headerlink" title="5.redux-thunk的安装"></a>5.redux-thunk的安装</h2><pre><code>npm install --save redux-thunk
-</code></pre><h2 id="6-react-redux的安装"><a href="#6-react-redux的安装" class="headerlink" title="6.react-redux的安装"></a>6.react-redux的安装</h2><pre><code>npm install --save react-redux
-</code></pre><p>安装完成组件里可以引用</p>
-<blockquote>
-<p>import {connect} from ‘react-redux’<br>import {bindActionCreators} from ‘redux’;<br>import {Provider} from ‘react-redux’;</p>
+<pre><code>shouldComponentUpdate(nextProps,nextState)
+</code></pre><blockquote>
+<p>5.组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。</p>
 </blockquote>
-<p> 以上都安装完成后 项目配置文件package.json下显示如下：</p>
-<pre><code>{
-  &quot;name&quot;: &quot;my-app&quot;,
-  &quot;version&quot;: &quot;0.1.0&quot;,
-  &quot;private&quot;: true,
-  &quot;dependencies&quot;: {
-    &quot;react&quot;: &quot;^16.4.0&quot;,
-    &quot;react-dom&quot;: &quot;^16.4.0&quot;,
-    &quot;react-redux&quot;: &quot;^5.0.7&quot;,
-    &quot;react-scripts&quot;: &quot;1.1.4&quot;,
-    &quot;redux-thunk&quot;: &quot;^2.3.0&quot;
-  },
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;react-scripts start&quot;,
-    &quot;build&quot;: &quot;react-scripts build&quot;,
-    &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,
-    &quot;eject&quot;: &quot;react-scripts eject&quot;
-  },
-  &quot;devDependencies&quot;: {
-    &quot;redux&quot;: &quot;^4.0.0&quot;
-  }
-}
+<pre><code>componentDidUpdate()
+</code></pre><blockquote>
+<p>6.组件将要卸载时调用，一些事件监听和定时器需要在此时清除。</p>
+</blockquote>
+<pre><code>componentWillUnmount()
 </code></pre>
       
     </div>
@@ -422,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/26/React Router(一)/" rel="next" title="React Router(一)">
-                <i class="fa fa-chevron-left"></i> React Router(一)
+              <a href="/2018/07/04/react-router中match对象/" rel="next" title="react-router中match对象">
+                <i class="fa fa-chevron-left"></i> react-router中match对象
               </a>
             
           </div>
@@ -431,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/React router的对象属性方法（一）/" rel="prev" title="React router的对象属性方法（一）">
-                React router的对象属性方法（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-react的安装"><span class="nav-number">1.</span> <span class="nav-text">1.react的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-react-dom的安装"><span class="nav-number">2.</span> <span class="nav-text">2.react-dom的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-react-router的安装"><span class="nav-number">3.</span> <span class="nav-text">3.react router的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-redux的安装"><span class="nav-number">4.</span> <span class="nav-text">4.redux的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-redux-thunk的安装"><span class="nav-number">5.</span> <span class="nav-text">5.redux-thunk的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-react-redux的安装"><span class="nav-number">6.</span> <span class="nav-text">6.react-redux的安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期三个状态："><span class="nav-number">1.</span> <span class="nav-text">生命周期三个状态：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期的方法"><span class="nav-number">2.</span> <span class="nav-text">生命周期的方法</span></a></li></ol></div>
             
 
           </div>
