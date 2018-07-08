@@ -80,17 +80,17 @@
 
 
 
-<meta name="description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
+<meta name="description" content="Redux执行的基本思路 用户进行点击（click）、输入（input）等事件，子组件通过callback调用最外层组件的自定义事件  最外层组件自定义事件的callback被触发，callback中执行dispatch（actions creators(data)） store监听到action被触发，执行相应的reducer， state被改变 页面render">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象(一)">
-<meta property="og:url" content="http://yoursite.com/2018/06/19/面向对象(一)/index.html">
+<meta property="og:title" content="Redux(一)">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/Redux(一)/index.html">
 <meta property="og:site_name" content="Hello">
-<meta property="og:description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
+<meta property="og:description" content="Redux执行的基本思路 用户进行点击（click）、输入（input）等事件，子组件通过callback调用最外层组件的自定义事件  最外层组件自定义事件的callback被触发，callback中执行dispatch（actions creators(data)） store监听到action被触发，执行相应的reducer， state被改变 页面render">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-09T14:42:27.861Z">
+<meta property="og:updated_time" content="2018-06-24T14:53:28.221Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象(一)">
-<meta name="twitter:description" content="定义 把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。  把封装函数的思想叫成抽象     封装函数：====&amp;gt;相同的代码拿一个函数包起来，复用     把函数变成对象的一种编程思想   类：-&amp;gt;把相同的特征的代码归为一类   (封装函数)       类的首字母要大写       类中尽量把变量变成属性。抽象:（抽离，长得像）           -&amp;gt;">
+<meta name="twitter:title" content="Redux(一)">
+<meta name="twitter:description" content="Redux执行的基本思路 用户进行点击（click）、输入（input）等事件，子组件通过callback调用最外层组件的自定义事件  最外层组件自定义事件的callback被触发，callback中执行dispatch（actions creators(data)） store监听到action被触发，执行相应的reducer， state被改变 页面render">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/19/面向对象(一)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/08/Redux(一)/"/>
 
 
 
 
 
-  <title>面向对象(一) | Hello</title>
+  <title>Redux(一) | Hello</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/19/面向对象(一)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/08/Redux(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LuanXiaoFeng">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">面向对象(一)</h1>
+          <h1 class="post-title" itemprop="name headline">Redux(一)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-19T18:36:08+08:00">
-                2018-06-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-08T12:02:06+08:00">
+                2018-07-08
               </time>
             
 
@@ -315,60 +315,13 @@
       
 
       
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p>把相同的特征的代码归为一类,把描述细节挂在这个类的原型下的一种编程思想。</p>
-<p> 把封装函数的思想叫成抽象<br>     封装函数：====&gt;相同的代码拿一个函数包起来，复用<br>     把函数变成对象的一种编程思想</p>
-</blockquote>
-<blockquote>
-<p>类：-&gt;把相同的特征的代码归为一类   (封装函数)<br>       <em>类的首字母要大写</em><br>       <em>类中尽量把变量变成属性。</em><br>抽象:（抽离，长得像）<br>           -&gt; 抽出像的部分</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Person(Pname,Page)&#123;  //类</span><br><span class="line">        let name = Pname;</span><br><span class="line">        let age = Page;</span><br><span class="line">        return &#123;</span><br><span class="line">            name,</span><br><span class="line">            age</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let p1 = Person(&apos;小明&apos;,20);</span><br><span class="line">    let p2 = Person(&apos;诗诗&apos;,18);</span><br><span class="line">    let p3 = Person(&apos;张三&apos;,16);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    console.log(p1); //实例化对象</span><br></pre></td></tr></table></figure>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><p>函数运算符<br>对象只有  proto<br>函数有   prototype    proto</p>
-<ul>
-<li>加不加括号都会运行函数,只不过加括号是为了传参</li>
-<li>构造函数中的this指向它的实例化对象</li>
-<li>默认返回构造函数的实例化对象</li>
-<li>如果强行给它加上return，如果是简单类型的数据<pre><code>返回值还是构造函数的实例化对象
-如果是复合类型，就返回介个复合类型。
-</code></pre></li>
+        <h2 id="Redux执行的基本思路"><a href="#Redux执行的基本思路" class="headerlink" title="Redux执行的基本思路"></a>Redux执行的基本思路</h2><ul>
+<li>用户进行点击（click）、输入（input）等事件，子组件通过callback调用最外层组件的自定义事件 </li>
+<li>最外层组件自定义事件的callback被触发，callback中执行dispatch（actions creators(data)）</li>
+<li>store监听到action被触发，执行相应的reducer， state被改变</li>
+<li>页面render</li>
 </ul>
-<h2 id="prototype-原型"><a href="#prototype-原型" class="headerlink" title="prototype(原型)"></a>prototype(原型)</h2><p>当创建一个函数的时候，自身带的属性<br><strong><em> 这个属性的值为对象 </em></strong></p>
-<blockquote>
-<p>如果一个对象上没有某个属性或者方法，那么还会继续<br>        去这个对象的构造函数的原型下去找某个属性或者方法。</p>
-</blockquote>
-<h2 id="proto（原型链）"><a href="#proto（原型链）" class="headerlink" title="proto（原型链）"></a><strong>proto</strong>（原型链）</h2><blockquote>
-<p>对象身上才有原型链(包括函数)<br>实例化对象的原型链 === 构造函数的原型</p>
-</blockquote>
-<blockquote>
-<p> <strong><em> 构造函数的原型下的属性或者方法，只给它的实例化对象用</em></strong></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Person.prototype.say = function()&#123;</span><br><span class="line">        alert(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    let p = new Person(&apos;小王&apos;,12);</span><br><span class="line"></span><br><span class="line">     console.dir(p.__proto__ === Person.prototype);//true</span><br><span class="line"></span><br><span class="line">    console.dir(p);</span><br></pre></td></tr></table></figure>
-<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><ul>
-<li>Function是Function构造出来的</li>
-<li>Object也是Function构造出来的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">     Person.prototype.say = function()&#123;</span><br><span class="line">     alert(1);</span><br><span class="line">     &#125;</span><br><span class="line">     Function.prototype.say = function()&#123;</span><br><span class="line">         alert(3);</span><br><span class="line">     &#125;</span><br><span class="line">    Object.prototype.say = function()&#123;</span><br><span class="line">        alert(4);</span><br><span class="line">    &#125;</span><br><span class="line">     Function.say = function()&#123;</span><br><span class="line">         alert(5);</span><br><span class="line">     &#125;</span><br><span class="line">     Person.say = function()&#123;</span><br><span class="line">         alert(2);</span><br><span class="line">     &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    let p = new Person();</span><br><span class="line">     p.say();</span><br><span class="line">     Person.say();</span><br><span class="line">     Function.say();</span><br><span class="line">    Object.say();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><pre><code> p.say
-   1、p.say
-   2、Person.prototype.say
-   3、Object.prototype.say
 
- Person.say
-   1、Person.say
-   2、Person.__proto__ -&gt; Function.prototype
-   3、Object.prototype.say
-
-Function.say
-   1、Function.say
-   2、Function.__proto__ -&gt; Function.prototype
-   3、Object.prototype.say
-
-
-Object.say
-    1、Object.say
-    2、Object.__proto__ -&gt; Function.prototype
-    3、Object.prototype.say
-</code></pre>
       
     </div>
     
@@ -421,8 +374,8 @@ Object.say
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/18/跨域（跨源）/" rel="next" title="跨域（跨源）(一)">
-                <i class="fa fa-chevron-left"></i> 跨域（跨源）(一)
+              <a href="/2018/07/05/React之生命周期/" rel="next" title="React之生命周期">
+                <i class="fa fa-chevron-left"></i> React之生命周期
               </a>
             
           </div>
@@ -430,10 +383,6 @@ Object.say
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/21/面向对象(二)/" rel="prev" title="面向对象(二)">
-                面向对象(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +516,7 @@ Object.say
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-number">2.</span> <span class="nav-text">new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prototype-原型"><span class="nav-number">3.</span> <span class="nav-text">prototype(原型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proto（原型链）"><span class="nav-number">4.</span> <span class="nav-text">proto（原型链）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">5.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux执行的基本思路"><span class="nav-number">1.</span> <span class="nav-text">Redux执行的基本思路</span></a></li></ol></div>
             
 
           </div>
